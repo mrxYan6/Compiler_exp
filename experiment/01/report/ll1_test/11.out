@@ -1,0 +1,40 @@
+D -> T 
+T -> int | float 
+V -> id | id , V 
+
+After remove left recursion:
+D -> T 
+T -> int | float 
+V -> id tmp0 
+tmp0 -> ε | , V 
+
+First:
+ε: ε 
+int: int 
+float: float 
+id: id 
+D: int float 
+T: int float 
+V: id 
+,: , 
+tmp0: ε , 
+
+FOLLOW:
+ε: 
+int: $ 
+float: 
+id: 
+D: 
+T: 
+V: 
+,: 
+tmp0: 
+
+SELECT:
+D -> T : int float 
+T -> int : int 
+T -> float : float 
+V -> id tmp0 : id 
+tmp0 -> ε : 
+tmp0 -> , V : , 
+LL1

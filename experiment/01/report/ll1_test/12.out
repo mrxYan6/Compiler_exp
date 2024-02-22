@@ -1,0 +1,40 @@
+S -> a | ^ | ( T ) 
+T -> S | T , S 
+
+After remove left recursion:
+S -> a | ^ | ( T ) 
+T -> a tmp0 | ^ tmp0 | ( T ) tmp0 
+tmp0 -> ε | , S tmp0 
+
+First:
+ε: ε 
+S: a ^ ( 
+T: a ^ ( 
+a: a 
+^: ^ 
+(: ( 
+): ) 
+,: , 
+tmp0: ε , 
+
+FOLLOW:
+ε: 
+S: $ ) , 
+T: ) 
+a: 
+^: 
+(: 
+): 
+,: 
+tmp0: ) 
+
+SELECT:
+S -> a : a 
+S -> ^ : ^ 
+S -> ( T ) : ( 
+T -> a tmp0 : a 
+T -> ^ tmp0 : ^ 
+T -> ( T ) tmp0 : ( 
+tmp0 -> ε : ) 
+tmp0 -> , S tmp0 : , 
+LL1

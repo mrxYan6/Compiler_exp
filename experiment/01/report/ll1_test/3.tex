@@ -1,0 +1,16 @@
+\begin{table}[!ht]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+        \hline
+            ~ & \$ & ε & a & b & c & d & e & f & g \\ \hline
+            A & ~ & ~ & A -> a tmp5 & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+            tmp0 & ~ & ~ & ~ & ~ & tmp0 -> c & ~ & tmp0 -> e & ~ & ~ \\ \hline
+            tmp1 & tmp1 -> ε & ~ & ~ & ~ & ~ & ~ & ~ & tmp1 -> f & ~ \\ \hline
+            tmp2 & tmp2 -> ε & ~ & ~ & ~ & ~ & ~ & tmp2 -> e tmp1 & tmp2 -> f & tmp2 -> g \\ \hline
+            tmp3 & ~ & ~ & ~ & ~ & tmp3 -> c & tmp3 -> d tmp2 & tmp3 -> e & ~ & ~ \\ \hline
+            tmp4 & ~ & ~ & ~ & tmp4 -> b tmp0 & tmp4 -> c tmp3 & ~ & ~ & ~ & ~ \\ \hline
+            tmp5 & ~ & ~ & tmp5 -> a b d & tmp5 -> b tmp4 & ~ & ~ & ~ & ~ & ~ \\ \hline
+        \end{tabular}
+    }
+\end{table}

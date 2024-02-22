@@ -1,0 +1,14 @@
+\begin{table}[!ht]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+        \hline
+            ~ & \$ & ε & + & - & * & / & ( & ) & i \\ \hline
+            E & ~ & ~ & ~ & ~ & ~ & ~ & E -> T tmp0 & ~ & E -> T tmp0 \\ \hline
+            T & ~ & ~ & ~ & ~ & ~ & ~ & T -> F tmp1 & ~ & T -> F tmp1 \\ \hline
+            F & ~ & ~ & ~ & ~ & ~ & ~ & F -> ( E ) & ~ & F -> i \\ \hline
+            tmp0 & tmp0 -> ε & ~ & tmp0 -> + T tmp0 & tmp0 -> - T tmp0 & ~ & ~ & ~ & tmp0 -> ε & ~ \\ \hline
+            tmp1 & tmp1 -> ε & ~ & tmp1 -> ε & tmp1 -> ε & tmp1 -> * F tmp1 & tmp1 -> / F tmp1 & ~ & tmp1 -> ε & ~ \\ \hline
+        \end{tabular}
+    }
+\end{table}

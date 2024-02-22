@@ -1,0 +1,96 @@
+
+int mul(int a, int b, int m) {
+    int res = 0;
+    while (b) {
+        if (b % 2) res = (res + a) % m;
+        b = b / 2;
+        a = (a + a) % m;
+    }
+    return res;
+}
+
+int power(int a, int b, int m) {
+    int res = 1 % m;
+    while (b) {
+        if (b % 2) res = mul(res, a, m);
+        b = b / 2;
+        a = mul(a, a, m);
+    }
+    return res;
+}
+
+int ctz(int n);
+
+int power1(int a, int b) {
+    int res = 1;
+    while (b) {
+        if (b % 2) res = res * a;
+        b = b / 2;
+        a = a * a;
+    }
+    return res;
+}
+
+int isprime(int n) {
+    if (n < 2) return 0;
+    int A[9] = {2, 3, 5, 7, 11, 13, 17, 19, 23};
+    int s = ctz(n - 1);
+    int m = power1(2, s);
+    int d = (n - 1) / m;
+    int i = 0;
+    while (i < 9) {
+        int a = A[i];
+        if (a == n) return 1;
+        int x = power(a, d, n);
+        if (x == 1 || x == n - 1) {
+            i = i + 1;
+            continue;
+        }
+        int ok = 0;
+
+        int j = 0;
+        while (s - 1 > j) {
+            x = mul(x, x, n);
+            if (x == n - 1) {
+                ok = 1;
+                break;
+            }
+            j = j + 1;
+        }
+
+        if (!ok) return 0;
+        i = i + 1;
+    }
+    return 1;
+}
+
+
+// 米勒判素
+int main() {
+    int id = 21052021;
+    putint(id);
+    putch(10);
+
+    int x;
+    x = getint();
+
+    int res = isprime(x);
+
+    if (res) {
+        putint(1);
+        putch(10);
+    } else {
+        putint(0);
+        putch(10);
+    }
+    return 0;
+}
+
+int ctz(int n) {
+    int res = 0;
+    while (n && n % 2 == 0) {
+        res = res + 1;
+        n = n / 2;
+    }
+    return res;
+}

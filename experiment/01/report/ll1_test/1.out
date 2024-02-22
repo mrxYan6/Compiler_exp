@@ -1,0 +1,53 @@
+E -> E + T | E - T | T 
+T -> T * F | T / F | F 
+F -> ( E ) | i 
+
+After remove left recursion:
+E -> T tmp0 
+T -> F tmp1 
+F -> ( E ) | i 
+tmp0 -> ε | + T tmp0 | - T tmp0 
+tmp1 -> ε | * F tmp1 | / F tmp1 
+
+First:
+ε: ε 
+E: ( i 
+T: ( i 
+F: ( i 
++: + 
+-: - 
+*: * 
+/: / 
+(: ( 
+): ) 
+i: i 
+tmp0: ε + - 
+tmp1: ε * / 
+
+FOLLOW:
+ε: 
+E: $ ) 
+T: $ + - ) 
+F: $ + - * / ) 
++: 
+-: 
+*: 
+/: 
+(: 
+): 
+i: 
+tmp0: $ ) 
+tmp1: $ + - ) 
+
+SELECT:
+E -> T tmp0 : ( i 
+T -> F tmp1 : ( i 
+F -> ( E ) : ( 
+F -> i : i 
+tmp0 -> ε : $ ) 
+tmp0 -> + T tmp0 : + 
+tmp0 -> - T tmp0 : - 
+tmp1 -> ε : $ + - ) 
+tmp1 -> * F tmp1 : * 
+tmp1 -> / F tmp1 : / 
+LL1

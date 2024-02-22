@@ -1,0 +1,54 @@
+S -> P e | c 
+P -> D E | f 
+D -> S P | g 
+E -> a b s 
+
+After remove left recursion:
+S -> P e | c 
+P -> D E | f 
+D -> c P tmp0 | f e P tmp0 | g tmp0 
+E -> a b s 
+tmp0 -> ε | E e P tmp0 
+
+First:
+ε: ε 
+S: c f g 
+P: c f g 
+D: c f g 
+E: a 
+e: e 
+c: c 
+f: f 
+g: g 
+a: a 
+b: b 
+s: s 
+tmp0: ε a 
+
+FOLLOW:
+ε: 
+S: $ 
+P: e a 
+D: a 
+E: e a 
+e: 
+c: 
+f: 
+g: 
+a: 
+b: 
+s: 
+tmp0: a 
+
+SELECT:
+S -> P e : c f g 
+S -> c : c 
+P -> D E : c f g 
+P -> f : f 
+D -> c P tmp0 : c 
+D -> f e P tmp0 : f 
+D -> g tmp0 : g 
+E -> a b s : a 
+tmp0 -> ε : a 
+tmp0 -> E e P tmp0 : a 
+Not LL1

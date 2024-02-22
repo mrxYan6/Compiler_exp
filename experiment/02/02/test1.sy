@@ -1,0 +1,36 @@
+int get(int a[], int b) {
+    int ret = 0;
+    int i = 0;
+    while (i < 6) {
+        ret = ret + a[i] / b + a[i] % b;
+        i = i + 1;
+    }
+    return ret;
+}
+
+int id = 21052021;
+
+int main() {
+    putint(id);
+    putch(10);
+
+    int a[6] = {5,0,0,40,48,28};
+    int b[6] = {1,0,0,2,0,1};
+
+    int ptr = 0;
+    int all = 0;
+    while (ptr < 6) {
+        all = all + a[ptr] - 20 * b[ptr];
+        ptr = ptr + 1;
+    }
+
+    // printf("%d\n", all);
+    putint(all);
+    putch(10);
+
+    int t = get(a, 5);
+
+    putint(t);
+    putch(10);
+    return 0;
+}

@@ -1,0 +1,37 @@
+int check(int val) {
+    if (val >= 100) return 5;
+    else if (val >= 80) return 4;
+    else if (val >= 60) return 3;
+    else if (val > 0) return 2;
+    else if (val == 0) return 1;
+    else return 0;
+}
+
+const int id = 21052021;
+
+int main() {
+    putint(id);
+    putch(10);
+
+    int a[20] = {5,0,0,40,48,28,60,70,80,65,67,78,88,79,100,101,102,-1,-2,-2};
+
+    int cnt[6] = {};
+
+    int i = 0;
+    while (i < 20) {
+        int val = check(a[i]);
+        cnt[val] = cnt[val] + 1;
+        i = i + 1;
+    }
+
+    int sum = 20;
+
+    float rato = 0.0;
+    rato = cnt[5] + cnt[4] + cnt[3];
+    rato = rato / sum;
+
+    putfloat(rato);
+    putch(10);
+
+    return 0;
+}

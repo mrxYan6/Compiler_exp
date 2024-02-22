@@ -1,0 +1,19 @@
+
+sample-gcc.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <main>:
+   0:	f3 0f 1e fa          	endbr64 
+   4:	55                   	push   %rbp
+   5:	48 89 e5             	mov    %rsp,%rbp
+   8:	c7 45 fc 04 00 00 00 	movl   $0x4,-0x4(%rbp)
+   f:	83 7d fc 00          	cmpl   $0x0,-0x4(%rbp)
+  13:	74 06                	je     1b <main+0x1b>
+  15:	83 45 fc 04          	addl   $0x4,-0x4(%rbp)
+  19:	eb 04                	jmp    1f <main+0x1f>
+  1b:	c1 65 fc 02          	shll   $0x2,-0x4(%rbp)
+  1f:	b8 00 00 00 00       	mov    $0x0,%eax
+  24:	5d                   	pop    %rbp
+  25:	c3                   	ret    

@@ -1,0 +1,4 @@
+S -> Pe | c
+P -> DE | f
+D -> SP | g
+E -> abs

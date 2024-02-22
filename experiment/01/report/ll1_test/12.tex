@@ -1,0 +1,12 @@
+\begin{table}[!ht]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|l|l|l|l|l|l|l|l|}
+        \hline
+            ~ & \$ & ε & a & \^ & ( & ) & , \\ \hline
+            S & ~ & ~ & S -> a & S -> \^ & S -> ( T ) & ~ & ~ \\ \hline
+            T & ~ & ~ & T -> a tmp0 & T -> \^ tmp0 & T -> ( T ) tmp0 & ~ & ~ \\ \hline
+            tmp0 & ~ & ~ & ~ & ~ & ~ & tmp0 -> ε & tmp0 -> , S tmp0 \\ \hline
+        \end{tabular}
+    }
+\end{table}

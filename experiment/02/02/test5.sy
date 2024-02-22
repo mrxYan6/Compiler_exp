@@ -1,0 +1,39 @@
+float abs(float x) {
+    if (x < 0) return -x;
+    else return x;
+}
+
+//find sqrt(x) using binary search
+float binary_search(float x) {
+    if (x < 0) {
+        return -1;
+    }
+
+    float l = 0, r = x;
+    int round = 0;
+    while (abs(r - l) > 1e-6 || round < 20) {
+        float mid = (l + r) / 2;
+        if (mid * mid <= x) {
+            l = mid;
+        } else {
+            r = mid;
+        }
+        round = round + 1;
+    }
+    return l;
+}
+
+int main() {
+    int id = 21052021;
+    putint(id);
+    putch(10);
+
+    float x;
+    x = getfloat();
+
+    float sqrt = binary_search(x);
+    printfloat(sqrt);
+    putch(10);
+
+    return 0;
+}

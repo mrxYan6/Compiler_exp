@@ -1,0 +1,26 @@
+A -> a B 
+B -> ε | b 
+
+After remove left recursion:
+A -> a B 
+B -> ε | b 
+
+First:
+ε: ε 
+A: a 
+B: ε b 
+a: a 
+b: b 
+
+FOLLOW:
+ε: 
+A: $ 
+B: $ 
+a: 
+b: 
+
+SELECT:
+A -> a B : a 
+B -> ε : $ 
+B -> b : b 
+LL1
